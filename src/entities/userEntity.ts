@@ -21,8 +21,8 @@ export class User {
   @Column({ length: 60, unique: true })
   email: string;
 
-  @Column({ type: "integer" })
-  phone: number;
+  @Column({ type: "varchar" })
+  phone: string;
 
   @Column({ length: 120 })
   password: string;
