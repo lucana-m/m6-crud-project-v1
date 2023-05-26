@@ -6,7 +6,7 @@ export const userSchema = z.object({
   email: z.string().email(),
   phone: z.string(),
   password: z.string(),
-  createdAt: z.string(),
+  createdAt: z.string().or(z.date()),
 });
 
 export const userSchemaRequest = userSchema.omit({
