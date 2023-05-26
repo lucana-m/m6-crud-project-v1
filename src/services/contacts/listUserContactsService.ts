@@ -1,10 +1,11 @@
 import { Repository } from "typeorm";
 import { User } from "../../entities/userEntity";
 import { AppDataSource } from "../../data-source";
+import { UserResponse } from "../../interfaces/userInterfaces";
 
 export const listUserContactsService = async (
   userId: number
-): Promise<User> => {
+): Promise<UserResponse> => {
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
   const user: User | null = await userRepository.findOne({
@@ -16,5 +17,7 @@ export const listUserContactsService = async (
     },
   });
 
-  return user!;
+  const { password, ...filteredUser } = user!;
+
+  return filteredUser;
 };

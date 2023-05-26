@@ -3,6 +3,7 @@ import { Contact } from "../../entities/contactsEntity";
 import { ContactRequest } from "../../interfaces/contactInterfaces";
 import { User } from "../../entities/userEntity";
 import { AppDataSource } from "../../data-source";
+import { userOfContactSchema } from "../../schemas/contactSchema";
 
 export const createContactService = async (
   userId: number,
@@ -14,9 +15,11 @@ export const createContactService = async (
 
   const user: User | null = await userRepository.findOneBy({ id: userId });
 
+  const parseUser = userOfContactSchema.parse(user);
+
   const contact: Contact = contactRepository.create({
     ...contactData,
-    user: user!,
+    user: parseUser!,
   });
 
   await contactRepository.save(contact);
