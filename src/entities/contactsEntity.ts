@@ -18,8 +18,8 @@ export class Contact {
   @Column({ length: 60, unique: true })
   email: string;
 
-  @Column({ type: "integer" })
-  phone: number;
+  @Column({ type: "varchar" })
+  phone: string;
 
   @CreateDateColumn({ type: "date" })
   createdAt: string | Date;
