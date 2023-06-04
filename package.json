@@ -6,8 +6,10 @@
   "author": "lucana-m <lucana_monica@hotmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@types/cors": "^2.8.13",
     "@types/jsonwebtoken": "^9.0.2",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
