@@ -28,7 +28,7 @@ export const listUserContactsController = async (
 ): Promise<Response> => {
   const userId: number = parseInt(request.params.id);
 
-  const userContacts: User = await listUserContactsService(userId);
+  const userContacts = await listUserContactsService(userId);
 
   return response.json(userContacts);
 };
